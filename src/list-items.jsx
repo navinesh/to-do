@@ -62,7 +62,7 @@ handleSaveChange: function(){
   this.fb.update({text: this.state.text});
   this.setState({textChanged: false});
 },
-//clear entered txt
+//clear entered text
 handleUndoClick: function(){
   this.setState({
     text: this.props.item.text,
