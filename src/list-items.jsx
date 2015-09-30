@@ -6,8 +6,12 @@ var ListItem = React.createClass({
   getInitialState: function(){
     return {
       text: this.props.item.text,
+<<<<<<< HEAD
       done: this.props.item.done,
       textChanged: false
+=======
+      done: this.props.item.done
+>>>>>>> cea5d75e7221a49aff83275b3ec1b901bf0a1353
     }
   },
   componentWillMount: function(){
@@ -16,6 +20,7 @@ var ListItem = React.createClass({
   render: function() {
     return <div className="input-group">
       <span className="input-group-addon">
+<<<<<<< HEAD
         <input
           type="checkbox"
           checked={this.state.done}
@@ -49,10 +54,27 @@ changesButtons: function(){
   }
 },
 //if the checkbox is checked, update the state
+=======
+        <input type="checkbox"
+        checked={this.state.done}
+        onChange={this.handleDoneChange}  />
+      </span>
+      <input type="text"
+      className="form-control"
+      value={this.state.text} />
+    <span className="input-group-btn">
+      <button className="btn btn-primary">
+        Delete
+      </button>
+    </span>
+  </div>
+},
+>>>>>>> cea5d75e7221a49aff83275b3ec1b901bf0a1353
 handleDoneChange: function(){
   var update = {done: event.target.checked}
   this.setState(update);
   this.fb.update(update);
+<<<<<<< HEAD
 },
 //change text
 handleTextChange: function(){
@@ -64,6 +86,8 @@ handleTextChange: function(){
 //delete list item
 handleDeleteClick: function(){
   this.fb.remove()
+=======
+>>>>>>> cea5d75e7221a49aff83275b3ec1b901bf0a1353
 }
 });
 
