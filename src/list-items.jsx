@@ -2,6 +2,7 @@ var React = require('react');
 var Firebase = require('firebase');
 var rootURL = 'https://resplendent-heat-3459.firebaseio.com/';
 
+//create react class
 var ListItem = React.createClass({
   getInitialState: function(){
     return {
