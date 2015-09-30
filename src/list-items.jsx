@@ -25,6 +25,7 @@ var ListItem = React.createClass({
 
       <input
         type="text"
+        disabled={this.state.done}
         className="form-control"
         value={this.state.text}
         onChange={this.handleTextChange} />
@@ -44,10 +45,29 @@ changesButtons: function(){
     return null
   }else{
     return <span>
-      <button className="btn btn-default">Save</button>
-      <button className="btn btn-default">Delete</button>
+      <button className="btn btn-default"
+        onClick={this.handleSaveChange}>
+        Save
+      </button>
+      <button
+        onClick={this.handleUndoClick}
+        className="btn btn-default">
+        Undo
+      </button>
     </span>
   }
+},
+//save edited text
+handleSaveChange: function(){
+  this.fb.update({text: this.state.text});
+  this.setState({textChanged: false});
+},
+//delete entered txt
+handleUndoClick: function(){
+  this.setState({
+    text: this.props.item.text,
+    textChanged: false
+  });
 },
 //if the checkbox is checked, update the state
 handleDoneChange: function(){
